@@ -1,0 +1,45 @@
+shell:
+  program: /bin/zsh
+  cwd: /Users/max
+  timeout_seconds: 120
+  max_output_chars: 12000
+  max_capture_chars: 200000
+  probe_timeout_seconds: 5
+
+telegram:
+  message_chunk_size: 3500
+  message_chunk_min: 2500
+  chunk_delay_ms: 250
+
+queue:
+  max_pending: 5
+
+logging:
+  max_bytes: 1048576
+  backup_count: 3
+
+maintenance:
+  idle_reset_after_seconds: 21600
+
+commands:
+  gs:
+    template: "git status"
+
+  gl:
+    template: "git log --oneline -20"
+
+  gd:
+    template: "git diff"
+
+  gco:
+    template: "git checkout {args}"
+    require_args: true
+    quote_args: true
+
+  claude:
+    template: "claude -p {args}"
+    require_args: true
+    quote_args: true
+
+  dps:
+    template: "docker ps"
